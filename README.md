@@ -1,6 +1,6 @@
-osTicket-slack
+osTicket-rocketchat
 ==============
-An plugin for [osTicket](https://osticket.com) which posts notifications to a [Slack](https://slack.com) channel.
+An plugin for [osTicket](https://osticket.com) which posts notifications to a [Rocket.Chat](https://github.com/RocketChat) channel.
 
 Install
 --------
@@ -9,3 +9,7 @@ Clone this repo or download the zip file and place the contents into your `inclu
 Info
 ------
 This plugin uses CURL and tested on osTicket-1.8.
+
+Forked from
+------
+This repo is forked from https://github.com/thammanna/osticket-slack and modified to work with Rocket.Chat
