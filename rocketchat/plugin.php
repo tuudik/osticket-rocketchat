@@ -1,13 +1,13 @@
 <?php
 
 return array(
-    'id' =>             'osticket:slack', 
+    'id' =>             'osticket:rocketchat', 
     'version' =>        '0.1',
-    'name' =>           'Slack notifier',
-    'author' =>         'Thammanna Jammada',
-    'description' =>    'Notify Slack on new ticket.',
-    'url' =>            'https://github.com/thammanna/osticket-slack',
-    'plugin' =>         'slack.php:SlackPlugin',        
+    'name' =>           'Rocket.Chat notifier',
+    'author' =>         'Marko Valing',
+    'description' =>    'Notify Rocket.Chat on new ticket.',
+    'url' =>            'https://github.com/tuudik/osticket-rocketchat',
+    'plugin' =>         'rocketchat.php:RocketChatPlugin',        
 );
 
 ?>
