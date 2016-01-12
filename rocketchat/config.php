@@ -20,6 +20,10 @@ class RocketChatPluginConfig extends PluginConfig {
                 'label' => 'Emoji',
                 'configuration' => array('size'=>100, 'length'=>200),
             )),	
+            'rocketchat-alert-text' => new TextboxField(array(
+                'label' => 'Alert text',
+                'configuration' => array('size'=>100, 'length'=>200),
+            )),	
         );
     }	
 }
