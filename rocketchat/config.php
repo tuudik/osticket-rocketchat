@@ -2,16 +2,24 @@
 
 require_once INCLUDE_DIR . 'class.plugin.php';
 
-class SlackPluginConfig extends PluginConfig {
+class RocketChatPluginConfig extends PluginConfig {
     function getOptions() {        
         return array(
-            'slack' => new SectionBreakField(array(
-                'label' => 'Slack notifier',
+            'rocketchat' => new SectionBreakField(array(
+                'label' => 'Rocket.Chat notifier',
             )),
-            'slack-webhook-url' => new TextboxField(array(
+            'rocketchat-webhook-url' => new TextboxField(array(
                 'label' => 'Webhook URL',
                 'configuration' => array('size'=>100, 'length'=>200),
-            )),			            
+            )),
+            'rocketchat-username' => new TextboxField(array(
+                'label' => 'Username',
+                'configuration' => array('size'=>100, 'length'=>200),
+            )),
+            'rocketchat-icon_emoji' => new TextboxField(array(
+                'label' => 'Emoji',
+                'configuration' => array('size'=>100, 'length'=>200),
+            )),	
         );
     }	
 }
