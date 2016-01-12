@@ -4,8 +4,8 @@ require_once(INCLUDE_DIR.'class.signal.php');
 require_once(INCLUDE_DIR.'class.plugin.php');
 require_once('config.php');
 
-class SlackPlugin extends Plugin {
-    var $config_class = "SlackPluginConfig";
+class RocketChatPlugin extends Plugin {
+    var $config_class = "RocketChatPluginConfig";
 	
 	function bootstrap() {		
 		Signal::connect('model.created', array($this, 'onTicketCreated'), 'Ticket');		
@@ -15,30 +15,26 @@ class SlackPlugin extends Plugin {
 		try {			
 			global $ost;		
 			$payload = array(
+						'username': $this->getConfig()->get('rocketchat-username'),
+   						'icon_emoji': $this->getConfig()->get('rocketchat-icon_emoji'),
+   						'text': $this->getConfig()->get('rocketchat-alert-text'),
 						'attachments' =>
 							array (
 								array (	
-									'pretext' => "New Ticket <" . $ost->getConfig()->getUrl() . "scp/tickets.php?id=" 
+									'title' => "New Ticket <" . $ost->getConfig()->getUrl() . "scp/tickets.php?id=" 
 												. $ticket->getId() . "|#" . $ticket->getNumber() . "> created",
-									'fallback' => "New Ticket <" . $ost->getConfig()->getUrl() . "scp/tickets.php?id=" 
-												. $ticket->getId() . "|#" . $ticket->getNumber() . "> created",
-									'color' => "#D00000",
-									'fields' => 
-									array(
-										array (
-											'title' => $ticket->getSubject(),
-											'value' => "created by " . $ticket->getName() . "(" . $ticket->getEmail() 
-														. ") in " . $ticket->getDeptName() . "(Department) via " 
-														. $ticket->getSource(),
-											'short' => False,
-										),											
-									),
+									'title_link' => $ost->getConfig()->getUrl() . "scp/tickets.php?id=" . $ticket->getId()
+									'text' => "created by " . $ticket->getName() . "(" . $ticket->getEmail() 
+												. ") in " . $ticket->getDeptName() . "(Department) via " 
+												. $ticket->getSource(),
+									'color' => $this->getConfig()->get('rocketchat-alert-color'),
+									
 								),
 							),
 						);
 						
 			$data_string = utf8_encode(json_encode($payload));
-			$url = $this->getConfig()->get('slack-webhook-url');
+			$url = $this->getConfig()->get('rocketchat-webhook-url');
 			 
 			$ch = curl_init($url);                                                                      			
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                                                                     
@@ -61,7 +57,7 @@ class SlackPlugin extends Plugin {
 			curl_close($ch);
 		}
 		catch(Exception $e) {
-			error_log('Error posting to Slack. '. $e->getMessage());
+			error_log('Error posting to RocketChat. '. $e->getMessage());
 		}
 	}	
 }
