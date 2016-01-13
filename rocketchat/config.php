@@ -3,7 +3,7 @@
 require_once INCLUDE_DIR . 'class.plugin.php';
 
 class RocketChatPluginConfig extends PluginConfig {
-    function getOptions() {        
+    function getOptions() {
         return array(
             'rocketchat' => new SectionBreakField(array(
                 'label' => 'Rocket.Chat notifier',
@@ -19,15 +19,23 @@ class RocketChatPluginConfig extends PluginConfig {
             'rocketchat-icon_emoji' => new TextboxField(array(
                 'label' => 'Emoji',
                 'configuration' => array('size'=>20, 'length'=>20),
-            )),	
-            'rocketchat-alert-text' => new TextboxField(array(
-                'label' => 'Alert text',
+            )),
+            'rocketchat-text-length' => new TextboxField(array(
+                'label' => 'Text length to show',
                 'configuration' => array('size'=>20, 'length'=>20),
-            )),	
-            'rocketchat-alert-color' => new TextboxField(array(
-                'label' => 'Alert color',
-                'configuration' => array('size'=>20, 'length'=>20),
-            )),	
+            )),
+            'rocketchat-color-good' => new TextboxField(array(
+                'label' => 'Alert good color',
+                'configuration' => array('size'=>7, 'length'=>7),
+            )),
+            'rocketchat-color-warning' => new TextboxField(array(
+                'label' => 'Alert warning color',
+                'configuration' => array('size'=>7, 'length'=>7),
+            )),
+            'rocketchat-color-danger' => new TextboxField(array(
+                'label' => 'Alert danger color',
+                'configuration' => array('size'=>7, 'length'=>7),
+            )),
         );
-    }	
+    }
 }
