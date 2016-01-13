@@ -8,7 +8,7 @@ Clone this repo or download the zip file and place the contents into your `inclu
 
 Info
 ------
-This plugin uses CURL and tested on osTicket-1.8.
+This plugin uses CURL and tested on osTicket-v1.9.12 (19292ad).
 
 Forked from
 ------
