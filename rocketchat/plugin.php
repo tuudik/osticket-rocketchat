@@ -1,13 +1,13 @@
 <?php
 
 return array(
-    'id' =>             'osticket:rocketchat', 
-    'version' =>        '0.1',
+    'id' =>             'osticket:rocketchat',
+    'version' =>        'v1.1',
     'name' =>           'Rocket.Chat notifier',
-    'author' =>         'Marko Valing',
-    'description' =>    'Notify Rocket.Chat on new ticket.',
+    'author' =>         'Tuudik, laufhannes, thammanna',
+    'description' =>    'Notify Rocket.Chat on events',
     'url' =>            'https://github.com/tuudik/osticket-rocketchat',
-    'plugin' =>         'rocketchat.php:RocketChatPlugin',        
+    'plugin' =>         'rocketchat.php:RocketChatPlugin',
 );
 
 ?>
