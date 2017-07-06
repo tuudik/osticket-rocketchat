@@ -1,3 +1,7 @@
+! Repository NOT MAINTAINED !
+=============
+
+
 osTicket-rocketchat
 ==============
 An plugin for [osTicket](https://osticket.com) which posts notifications to a [Rocket.Chat](https://github.com/RocketChat) channel.
